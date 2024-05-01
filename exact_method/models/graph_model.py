@@ -23,6 +23,22 @@ class Graph:
     def add_edge(self, src: Node, dst: Node):
         self.matrix[src.id][dst.id] = 1
 
+    def add_edges(self, nodes: list[Node], sub_seqs: list[list[str]]):
+        for i in range(len(sub_seqs)):
+            root: Node = Node(sub_sequence='', score=0)
+            for node in nodes:
+                if node.sub_sequence == sub_seqs[i][0]:
+                    root = node
+                    break
+            for j in range(1, len(sub_seqs[i])):
+                child: Node = Node(sub_sequence='', score=0)
+                for node in nodes:
+                    if node.sub_sequence == sub_seqs[i][j]:
+                        child = node
+                        break
+
+                self.matrix[root.id][child.id] = 1
+
     def draw(self):
         g: nx.Graph = nx.from_numpy_array(np.array(self.matrix))
         pos = graphviz_layout(g, prog='dot')
