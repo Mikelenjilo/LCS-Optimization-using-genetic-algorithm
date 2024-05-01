@@ -1,18 +1,11 @@
 from exact_method.models.graph_model import Graph
 from exact_method.models.node_model import Node
 from collections import deque
-
-
-
-
 class BFS:
     @staticmethod
     def create_graph(motif: str):
         all_sub_seqs: list[list] = get_all_sub_seqs(motif)
         print(all_sub_seqs)
-
-
-
 
 def get_all_sub_seqs(root: str) -> list[list]:
     ouvert: list[str] = [root]

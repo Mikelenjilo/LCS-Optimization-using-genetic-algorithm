@@ -1,6 +1,5 @@
 from setup import setup
-from exact_method.bfs import BFS
-
+from exact_method.bfs import BF
 def main():
     motif: str = 'MMA'
     BFS.create_graph(motif)
