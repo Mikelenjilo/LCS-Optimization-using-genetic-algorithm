@@ -9,15 +9,13 @@ class LCS:
         sequences.remove(min_seq)
 
         valid_seqs: list[str] = []
-        if valid_seqs:
-            a: str = ''
-            for sub_seq in seq_str:
-                a = evaluate_seqs(sub_seq, sequences)
-            if a:
+        for sub_seq in seq_str:
+            a: str = evaluate_seqs(sub_seq, sequences)
+            if a and a not in valid_seqs:
                 valid_seqs.append(a)
 
+        if valid_seqs:
             return get_long_seq(valid_seqs)
         else:
             return []
-
 

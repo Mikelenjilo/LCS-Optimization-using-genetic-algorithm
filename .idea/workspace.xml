@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7b6b5d9-f316-4dfd-ad14-3ccaf967e870" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/dataset_generation/helper_functions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset_generation/models/dataset_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exact_method/helper_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/exact_method/helper_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exact_method/lcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/exact_method/lcs.py" afterDir="false" />
@@ -61,10 +63,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "preferences.editor",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Studies\S2\Opt_Comb\lcs_opt_genetic_algo" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python">
       <module name="lcs_project_genetic_algo" />
@@ -128,18 +135,13 @@
           <line>43</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/exact_method/lcs.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/lcs_project_genetic_algo$main.coverage" NAME="main Coverage Results" MODIFIED="1714478065288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/lcs_project_genetic_algo$bfs.coverage" NAME="bfs Coverage Results" MODIFIED="1714227418855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exact_method" />
-    <SUITE FILE_PATH="coverage/lcs_opt_genetic_algo$main.coverage" NAME="main Coverage Results" MODIFIED="1714723753486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/lcs_opt_genetic_algo$main.coverage" NAME="main Coverage Results" MODIFIED="1714730304262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/lcs_project_genetic_algo$tp4.coverage" NAME="tp4 Coverage Results" MODIFIED="1714478088270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../Bio_Algo/TPs" />
   </component>
 </project>

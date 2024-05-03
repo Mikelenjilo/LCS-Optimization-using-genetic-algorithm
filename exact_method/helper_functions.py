@@ -42,7 +42,7 @@ def get_seq_str(seq: str, seq_array: list[list[int]]) -> list[str]:
             if array[i] == 1:
                 motif = motif + seq[i]
 
-        if motif:
+        if motif and motif not in seqs:
             seqs.append(motif)
 
     return seqs
@@ -68,22 +68,3 @@ def evaluate_seqs(sub_seq: str, sequences: list[str]) -> str:
 
     if len(k_array) == len(sequences):
         return sub_seq
-    # for seq in sequences:
-    # for node in nodes:
-    #     i: int = 0
-    #     j: int = 0
-    #     k: int = 0
-    #     score: int = 0
-    #     sub_seq: str = node.sub_sequence
-    #
-    #     while i < len(sub_seq) and j < len(seq):
-    #         if sub_seq[i] == seq[j]:
-    #             i += 1
-    #             j += 1
-    #             k += 1
-    #         else:
-    #             j += 1
-    #
-    #     if k == len(sub_seq):
-    #         score += 1
-    #         node.score = score
