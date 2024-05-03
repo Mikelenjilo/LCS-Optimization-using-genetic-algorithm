@@ -1,12 +1,17 @@
-from exact_method.models.graph_model import Graph
-from exact_method.helper_functions import create_graph, evaluate_nodes, get_longest_prefix
+from exact_method.helper_functions import get_small_seq, get_seqs_array, get_seq_str
 
 class LCS:
     @staticmethod
-    def longest_common_subsequence(motif: str, sequences: list[str]) -> list[str]:
-        graph: Graph = create_graph(motif)
-        evaluate_nodes(graph.nodes, sequences)
-        graph.draw()
-        return get_longest_prefix(graph.nodes)
+    def longest_common_subsequence(sequences: list[str]) -> list[str]:
+        min_seq: str = get_small_seq(sequences)
+        seqs_array: list[list[int]] = get_seqs_array(min_seq)
+        seq_str: list[str] = get_seq_str(min_seq, seqs_array)
+
+        sequences.remove(min_seq)
+
+        for seq_motif in seq_str:
+            for seq in sequences:
+
+
 
 
