@@ -69,7 +69,6 @@ def evaluate_nodes(nodes: list[Node], sequences: list[str]):
             i: int = 0
             j: int = 0
             k: int = 0
-            score: int = 0
             sub_seq: str = node.sub_sequence
 
             while i < len(sub_seq) and j < len(seq):
@@ -81,8 +80,7 @@ def evaluate_nodes(nodes: list[Node], sequences: list[str]):
                     j += 1
 
             if k == len(sub_seq):
-                score += 1
-                node.score = score
+                node.score += 1
 
 
 def get_longest_prefix(nodes: list[Node]) -> list[str]:
@@ -99,3 +97,4 @@ def get_longest_prefix(nodes: list[Node]) -> list[str]:
 
     return long_seqs
 
+def get_bool_array(motif: str) -> 

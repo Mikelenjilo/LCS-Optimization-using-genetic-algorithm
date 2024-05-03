@@ -3,10 +3,9 @@ from exact_method.lcs import LCS
 
 
 def main():
-    motif: str = 'MASSI'
+    motif: str = 'AAAAB'
     sequences: list[str] = ['MADJID', 'MALIKA', 'KOCEILA']
     long_seqs = LCS.longest_common_subsequence(motif, sequences)
-    print(long_seqs)
 
 
 if __name__ == '__main__':

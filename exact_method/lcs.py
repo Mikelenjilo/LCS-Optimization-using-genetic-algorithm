@@ -6,6 +6,7 @@ class LCS:
     def longest_common_subsequence(motif: str, sequences: list[str]) -> list[str]:
         graph: Graph = create_graph(motif)
         evaluate_nodes(graph.nodes, sequences)
+        graph.draw()
         return get_longest_prefix(graph.nodes)
 
 
