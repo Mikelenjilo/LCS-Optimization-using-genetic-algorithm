@@ -9,8 +9,7 @@ class LCS:
 
         sequences.remove(min_seq)
 
-        for seq_motif in seq_str:
-            for seq in sequences:
+
 
 
 
