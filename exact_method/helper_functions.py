@@ -68,3 +68,14 @@ def evaluate_seqs(sub_seq: str, sequences: list[str]) -> str:
 
     if len(k_array) == len(sequences):
         return sub_seq
+
+
+def evaluate_seq(l: int, m: int, seq_length: int):
+    v: int = l + 30 * m
+
+    if l == seq_length:
+        v += 50
+
+    v *= 3000
+
+    return v
