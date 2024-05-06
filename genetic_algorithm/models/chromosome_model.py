@@ -5,7 +5,7 @@ class Chromosome:
         self.sequence = sequence
         self.motif = motif
 
-    def get_seq_from_array(self):
+    def get_str_from_array(self):
         a: str = ''
 
         for i in range(len(self.array)):

@@ -11,7 +11,7 @@ class Dataset:
 
     def export_dataset(self):
         filename: str = "dataset_generation\datasets\{alphabet}_{nb_seqs}_{seq_length}_{var_length}.txt".format(
-            alphabet=''.join(self.alphabet), nb_seqs=self.nb_seqs, seq_length=self.seq_length,
+            alphabet=len(self.alphabet), nb_seqs=self.nb_seqs, seq_length=self.seq_length,
             var_length=self.var_length)
         headers: str = "alphabet: {alphabet}\nnb_seqs: {nb_seqs}\nseq_length: {seq_length}\nvar_length: {var_length}\n".format(alphabet=self.alphabet, nb_seqs=self.nb_seqs, seq_length=self.seq_length, var_length=self.var_length)
         start: str = ">>\n"

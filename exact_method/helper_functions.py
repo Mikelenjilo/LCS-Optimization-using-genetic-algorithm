@@ -1,7 +1,7 @@
 from itertools import product
 
 
-def get_small_seq(seqs: list[str]) -> str:
+def get_small_chrom(seqs: list[str]) -> str:
     min_len: int = len(seqs[0])
     min_seq: str = seqs[0]
     for seq in seqs:
@@ -12,7 +12,7 @@ def get_small_seq(seqs: list[str]) -> str:
     return min_seq
 
 
-def get_long_seq(seqs: list[str]) -> list[str]:
+def get_long_seqs(seqs: list[str]) -> list[str]:
     max_len: int = len(seqs[0])
     max_seqs: list[str] = []
     for seq in seqs:
@@ -28,6 +28,7 @@ def get_long_seq(seqs: list[str]) -> list[str]:
 
 def get_seqs_array(seq: str):
     array: list[list[int]] = []
+
     for bits in product([0, 1], repeat=len(seq)):
         array.append(list(bits))
 
@@ -48,8 +49,8 @@ def get_seq_str(seq: str, seq_array: list[list[int]]) -> list[str]:
     return seqs
 
 
-def evaluate_seqs(sub_seq: str, sequences: list[str]) -> str:
-    k_array: list[int] = []
+def compare_seqs(sub_seq: str, sequences: list[str]) -> str:
+    z: int = 0
     for seq in sequences:
         i: int = 0
         j: int = 0
@@ -64,9 +65,9 @@ def evaluate_seqs(sub_seq: str, sequences: list[str]) -> str:
                 j += 1
 
         if k == len(sub_seq):
-            k_array.append(k)
+            z += 1
 
-    if len(k_array) == len(sequences):
+    if z == len(sequences):
         return sub_seq
 
 
