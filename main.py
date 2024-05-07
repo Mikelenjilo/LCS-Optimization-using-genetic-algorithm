@@ -1,60 +1,99 @@
+import time
+import random
+
 from setup import setup
 from lcs import LCS
 from dataset_generation.helper_functions import generate_dataset
 from dataset_generation.models.dataset_model import Dataset
 from genetic_algorithm.models.selection_method_model import SelectionMethod
-import time
 
 
 def main():
-    alphabets = [
-        ['A', 'B'],
-        ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'],
-        ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
-         'W', 'X', 'Y', 'Z']
-    ]
+    print("Bienvenue dans ce programme de recherche de la plus longue sous-séquence commune!")
 
-    nb_seqs = [
-        10,
-        100,
-    ]
+    print("\nGénération du dataset en cours...")
+    alphabet = input("Entrez une liste d'alphabet séparée par des espaces : ").split()
+    num_strings = int(input("Entrez le nombre de chaînes de caractères : "))
+    length = int(input("Entrez la longueur des chaînes de caractères : "))
 
-    seq_length = [10, 20]
+    a = input("Toutes les chaînes auront-elles la même longueur ? (o/n) : ").lower()
+    if a == 'o':
+        var_length = False
+    else:
+        var_length = True
 
-    mutation_rates = [0.05, 0.10]
-    max_gens = [100, 200]
-    population_sizes = [100, 200]
+    dataset: Dataset = generate_dataset(alphabet=alphabet, seq_length=length, var_length=var_length,
+                                        nb_seqs=num_strings)
 
-    for i in alphabets:
-        for j in nb_seqs:
-            for z in seq_length:
-                dataset: Dataset = generate_dataset(i, j, z)
+    print("\nInfos dataset :")
+    print(f"\t- Alphabets : {alphabet}")
+    print(f"\t- Nombre de chaînes de caractères : {num_strings}")
+    print(f"\t- Taille des chaînes de caractères : {length}")
+    if a:
+        print("\t- Toutes les chaînes auront la même taille")
+    else:
+        print("\t- Toutes les chaînes n'auront pas la même taille")
 
-                s_exact = time.process_time()
-                lcs_exact = LCS.exact_method(dataset.sequences)
-                if lcs_exact:
-                    lcs_exact = lcs_exact[0][1]
-                e_exact = time.process_time() - s_exact
-                print(f"Exact method: {lcs_exact}, time: {e_exact}")
+    while True:
+        print("\nChoisissez un algorithme à exécuter :")
+        print("1. Algorithme naïf")
+        print("2. Algorithme génétique")
+        print("3. Quitter")
+        choice = input("Votre choix : ")
 
-                s_ga = time.process_time()
-                lcs_ga = \
-                LCS.genetic_algorithm(chromosomes=dataset.sequences, population_size=200, mutation_rate=0.10, max_gens=200,
-                                      selection_method=SelectionMethod.TOURNAMENT)[1]
-                e_ga = time.process_time() - s_ga
-                print(f"Genetic algorithm: {lcs_ga}, time: {e_ga}")
+        if choice == '1':
+            print("\nLancement de l'algorithme naïf!!!")
+            for i in range(5):
+                time.sleep(0.2)
+                if i == 0:
+                    print("En recherche.", end='', flush=True)
+                else:
+                    print(".", end='', flush=True)
+            print()
+            print("Patientez encore un moment...")
+            start = time.process_time()
+            lcs = LCS.exact_method(dataset.sequences)
+            end = time.process_time()
 
-                print('----------------------------------------------')
+            if len(lcs) == 0:
+                print("\nAucune sous-séquence trouvée !")
+            elif len(lcs) == 1:
+                print(f"\nLongest Common Subsequence (Méthode exacte) : {lcs[0]}")
+                print(f"Temps d'exécution : {end - start} secondes")
+            else:
+                b = []
+                for a in lcs:
+                    b.append(a[0])
+                print(f"\nLongest Common Subsequence (Méthode exacte) : {b}")
+                print(f"Temps d'exécution : {end - start} secondes")
 
-    # start_time = time.process_time()
-    # long_seqs_exact = LCS.exact_method(dataset.sequences)
-    # print(long_seqs_exact)
-    # print(time.process_time() - start_time)
+        elif choice == '2':
+            max_gens = int(input("\nSpecifier le nombre de générations (nombre d'itérations) : "))
+            mutation_rate = float(input("Specifier le taux de mutation (entre 0 et 1) : "))
+            population_size = int(input("Specifier la taille d'une population d'une génération : "))
 
-    # start_time = time.process_time()
-    # long_seqs_optimal = LCS.genetic_algorithm(chromosomes=dataset.sequences, population_size=1000, mutation_rate=0.10, max_gens=100, selection_method=SelectionMethod.TOURNAMENT)
-    # print(long_seqs_optimal)
-    # print(time.process_time() - start_time)
+            print("\nLancement de l'algorithme génétique!!!")
+            for i in range(5):
+                time.sleep(0.2)
+                if i == 0:
+                    print("En recherche.", end='', flush=True)
+                else:
+                    print(".", end='', flush=True)
+            print()
+            print("Patientez encore un moment...")
+            start = time.process_time()
+            lcs = LCS.genetic_algorithm(chromosomes=dataset.sequences, max_gens=max_gens, mutation_rate=mutation_rate,
+                                        population_size=population_size, selection_method=SelectionMethod.TOURNAMENT)
+            end = time.process_time()
+
+            print(f"\nLongest Common Subsequence (Méthode optimale) : {lcs[0]}")
+            print(f"Temps d'exécution : {end - start} secondes")
+
+        elif choice == '3':
+            print("\nMerci d'avoir utilisé ce programme. À bientôt !")
+            break
+        else:
+            print("Choix invalide. Veuillez choisir à nouveau.")
 
 
 if __name__ == '__main__':
